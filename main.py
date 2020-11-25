@@ -34,7 +34,7 @@ def get_fields(data):
     return date
 
 
-"""Function retrieve name for new file"""
+"""Function retrieve unique names for new file"""
 
 
 def has_element(item, new_data):
@@ -58,7 +58,7 @@ def get_names(data):
 def send_zero_names(names, fields):
     for item in names:
         for elem in fields[1:]:
-            item[elem] = ""
+            item[elem] = 0
     return names
 
 
