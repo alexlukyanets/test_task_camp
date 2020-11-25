@@ -7,8 +7,7 @@ def read_csv(filename):
     data = []
     with open(filename, newline='') as csvfile:
         fieldnames = ['Employee Name', 'Date', 'Work Hours']
-        spamreader = csv.DictReader(csvfile, fieldnames=fieldnames)
-        for row in spamreader:
+        for row in csv.DictReader(csvfile, fieldnames=fieldnames):
             data.append(row)
     return data
 
@@ -30,7 +29,7 @@ def get_fields(data):
     date = []
     for item in data:
         for key in item.keys():
-            if not key in date:
+            if key not in date:
                 date.append(key)
     return date
 
@@ -101,7 +100,7 @@ def main():
     # print(zero_names)
     final_data = add_date(zero_names, changed_data)
     # print(final_data)
-    final_data.sort(key=lambda x: x['Employee Name'])
+    final_data.sort(key=lambda x: x['Employee Name'])  # Add sort
     write_csv(final_data, fieldnames, 'sorted_final_worksheet.csv')
 
 
