@@ -101,7 +101,8 @@ def main():
     # print(zero_names)
     final_data = add_date(zero_names, changed_data)
     # print(final_data)
-    write_csv(final_data, fieldnames)
+    final_data.sort(key=lambda x: x['Employee Name'])
+    write_csv(final_data, fieldnames, 'sorted_final_worksheet.csv')
 
 
 if __name__ == '__main__':
